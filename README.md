@@ -9,15 +9,15 @@ Publishes Buf binaries to Maven Central for consumption by JVM projects. Written
 <!--ts-->
 * [buf-publisher](#buf-publisher)
    * [Table of Contents](#table-of-contents)
-      * [Publishing](#publishing)
+   * [Publishing](#publishing)
 
 <!-- Created by https://github.com/ekalinin/github-markdown-toc -->
-<!-- Added by: andrewparmet, at: Mon Oct 10 19:55:20 EDT 2022 -->
+<!-- Added by: andrewparmet, at: Mon Oct 10 23:30:33 EDT 2022 -->
 
 <!--te-->
 <!-- Regenerate with `./gh-md-toc --insert README.md` -->
 
-### Publishing
+## Publishing
 
 In contrast to other published binaries like `protoc`, which are published and tagged according to the binary itself, this project's versioning scheme is to publish each configured version of Buf to an artifact versioned according to this project. If a specific version has an issue then all versions of Buf can be republished.
 
