@@ -19,8 +19,6 @@ repositories {
     gradlePluginPortal()
 }
 
-version = "1.0.0"
-
 plugins {
     `maven-publish`
     alias(libs.plugins.download)
