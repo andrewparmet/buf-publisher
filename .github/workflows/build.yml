@@ -30,8 +30,8 @@ jobs:
       - name: Download binaries
         continue-on-error: true
         uses: gradle/gradle-build-action@v2
-          with:
-            arguments: downloadBinaries
+        with:
+          arguments: downloadBinaries
 
       - name: Build
         uses: gradle/gradle-build-action@v2
