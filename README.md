@@ -1,6 +1,6 @@
 # buf-publisher
 
-[![Maven Central](https://img.shields.io/badge/dynamic/xml?color=orange&label=maven-central&prefix=v&query=%2F%2Fmetadata%2Fversioning%2Flatest&url=https%3A%2F%2Frepo1.maven.org%2Fmaven2%2Fcom%2Fparmet%2Fbuf%2Fbuf%2Fmaven-metadata.xml)](https://search.maven.org/artifact/com.parmet/buf-gradle-plugin)
+[![Maven Central](https://img.shields.io/badge/dynamic/xml?color=orange&label=maven-central&prefix=v&query=%2F%2Fmetadata%2Fversioning%2Flatest&url=https%3A%2F%2Frepo1.maven.org%2Fmaven2%2Fcom%2Fparmet%2Fbuf%2Fbuf%2Fmaven-metadata.xml)](https://search.maven.org/artifact/com.parmet.buf/buf)
 
 Publishes Buf binaries to Maven Central for consumption by JVM projects. Written to support the [Buf Gradle Plugin](https://github.com/andrewparmet/buf-gradle-plugin).
 
