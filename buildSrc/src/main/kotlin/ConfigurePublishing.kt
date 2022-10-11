@@ -72,7 +72,9 @@ fun Project.configurePublishing() {
             }
         }
 
-        tasks.named("signMainPublication") { dependsOn("downloadBinaries") }
+        afterEvaluate {
+            tasks.named("signMainPublication") { dependsOn("downloadBinaries") }
+        }
     }
 }
 
