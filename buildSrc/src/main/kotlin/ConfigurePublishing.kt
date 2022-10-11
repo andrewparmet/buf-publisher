@@ -24,13 +24,11 @@ import org.gradle.kotlin.dsl.withType
 import org.gradle.plugins.signing.SigningExtension
 
 private object Pgp {
-    val key by lazy {
-        System.getenv("PGP_KEY")?.replace('$', '\n')
-    }
+    val key
+        get() = System.getenv("PGP_KEY")?.replace('$', '\n')
 
-    val password by lazy {
-        System.getenv("PGP_PASSWORD")
-    }
+    val password
+        get() = System.getenv("PGP_PASSWORD")
 }
 
 private object Remote {
