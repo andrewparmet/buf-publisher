@@ -30,4 +30,4 @@ jobs:
       - name: Build
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: publishToMavenLocal build --info
+          arguments: downloadBinaries publishToMavenLocal build --info
