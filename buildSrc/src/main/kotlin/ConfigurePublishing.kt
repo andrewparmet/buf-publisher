@@ -34,13 +34,11 @@ private object Pgp {
 }
 
 private object Remote {
-    val username by lazy {
-        System.getenv("OSSRH_USERNAME")
-    }
+    val username
+        get() = System.getenv("OSSRH_USERNAME")
 
-    val password by lazy {
-        System.getenv("OSSRH_PASSWORD")
-    }
+    val password
+        get() = System.getenv("OSSRH_PASSWORD")
 }
 
 object ProjectInfo {

@@ -56,8 +56,8 @@ data class Version(
     val fileName = "buf-${os.bufName}-${arch + if (os == Os.WINDOWS) ".exe" else ""}"
 }
 
-fun versions(): List<Version> =
-    listOf("1.0.0", "1.1.0", "1.8.0").flatMap { version ->
+fun versionsToPublish(): List<Version> =
+    listOf("1.1.1", "1.2.0", "1.2.1", "1.3.0", "1.3.1", "1.4.0", "1.5.0", "1.6.0", "1.7.0").flatMap { version ->
         listOf(Os.MAC, Os.WINDOWS, Os.LINUX).flatMap { os ->
             os.architectures.map { arch ->
                 Version(version, os, arch)
@@ -67,7 +67,7 @@ fun versions(): List<Version> =
 
 tasks.register<Download>("downloadBinaries") {
     val urls =
-        versions().associate {
+        versionsToPublish().associate {
             "https://github.com/bufbuild/buf/releases/download/v${it.version}/${it.fileName}" to it.version
         }
 
@@ -84,7 +84,7 @@ tasks.register<Download>("downloadBinaries") {
 
 publishing {
     publications {
-        versions().forEach {
+        versionsToPublish().forEach {
             val existing = findByName("main-${it.version}") as MavenPublication?
             with(existing ?: create<MavenPublication>("main-${it.version}")) {
                 artifact(file("$buildDir/buf/${it.version}/${it.fileName}")) {
