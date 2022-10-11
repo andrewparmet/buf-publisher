@@ -71,6 +71,8 @@ fun Project.configurePublishing() {
                 sign(this)
             }
         }
+
+        tasks.named("signMainPublication") { dependsOn("downloadBinaries") }
     }
 }
 
