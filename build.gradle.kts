@@ -19,7 +19,7 @@ repositories {
     gradlePluginPortal()
 }
 
-version = "1.0.0"
+version = "1.0.0-SNAPSHOT"
 
 plugins {
     `maven-publish`
@@ -57,7 +57,7 @@ data class Version(
 }
 
 fun versionsToPublish(): List<Version> =
-    listOf("1.1.1", "1.2.0", "1.2.1", "1.3.0", "1.3.1", "1.4.0", "1.5.0", "1.6.0", "1.7.0").flatMap { version ->
+    listOf("1.0.0", "1.1.0", "1.1.1", "1.2.0", "1.2.1", "1.3.0", "1.3.1", "1.4.0", "1.5.0", "1.6.0", "1.7.0", "1.8.0").flatMap { version ->
         listOf(Os.MAC, Os.WINDOWS, Os.LINUX).flatMap { os ->
             os.architectures.map { arch ->
                 Version(version, os, arch)
@@ -84,18 +84,17 @@ tasks.register<Download>("downloadBinaries") {
 
 publishing {
     publications {
-        versionsToPublish().forEach {
-            val existing = findByName("main-${it.version}") as MavenPublication?
-            with(existing ?: create<MavenPublication>("main-${it.version}")) {
+        create<MavenPublication>("main") {
+            versionsToPublish().forEach {
                 artifact(file("$buildDir/buf/${it.version}/${it.fileName}")) {
-                    classifier = "${it.os.classifierName}-${it.arch}"
+                    classifier = "${it.version}-${it.os.classifierName}-${it.arch}"
                     extension = "exe"
                 }
-
-                this.artifactId = "buf"
-                this.version = it.version
-                this.groupId = "com.parmet.buf"
             }
+
+            this.artifactId = "buf"
+            this.version = project.version.toString()
+            this.groupId = "com.parmet.buf"
         }
     }
 }
