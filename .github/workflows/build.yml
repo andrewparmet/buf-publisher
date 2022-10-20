@@ -27,12 +27,6 @@ jobs:
           java-version: 11
           check-latest: true
 
-      - name: Download binaries
-        continue-on-error: true
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: downloadBinaries
-
       - name: Build
         uses: gradle/gradle-build-action@v2
         with:
