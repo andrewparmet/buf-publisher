@@ -12,7 +12,7 @@
 # limitations under the License.
 
 [versions]
-download = "5.2.1"
+download = "5.3.0"
 publishing = "0.22.0"
 spotless = "6.5.2"
 
