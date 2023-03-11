@@ -56,11 +56,9 @@ data class Version(
 
 fun versionsToPublish(): List<Version> =
     listOf(
-        "1.10.0",
-        "1.11.0",
-        "1.12.0",
-        "1.13.0",
-        "1.13.1"
+        "1.14.0",
+        "1.15.0",
+        "1.15.1"
     ).flatMap { version ->
         listOf(Os.MAC, Os.WINDOWS, Os.LINUX).flatMap { os ->
             os.architectures.map { arch ->
